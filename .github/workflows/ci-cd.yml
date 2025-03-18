@@ -129,6 +129,10 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           load: true
       
+      - name: Debug image-ref
+        run: |
+         echo "Image reference: ghcr.io/${{ github.repository }}:sha-${{ github.sha }}"
+      
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:

@@ -7,8 +7,14 @@ on:
       - 'kubernetes/deployment.yaml'  # Ignore changes to this file to prevent loops
   pull_request:
     branches: [ main ]
-    
-    workflow_dispatch:
+
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Branch to deploy'
+        required: true
+        default: 'main'
+
 
 jobs:
   test:
